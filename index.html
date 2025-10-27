@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Google - Clone</title>
+
+  <!-- Fonte (opcional) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="source/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="top-nav" aria-label="Navegação superior">
+      <div class="nav-left">
+        <a href="#" class="nav-link">Gmail</a>
+        <a href="#" class="nav-link">Imagens</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="icon-btn" aria-label="Menu" title="Menu">
+          <img src="images/menu.png" alt="Ícone menu" loading="lazy">
+        </button>
+
+        <button class="icon-btn profile" aria-label="Conta" title="Conta">
+          <img src="images/user.png" alt="Ícone usuário" loading="lazy">
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="search-title">
+      <img class="logo" src="images/logo.png" alt="Logo" width="320" height="96" loading="lazy">
+
+      <form class="search" role="search" action="#" method="GET" aria-label="Pesquisar no site">
+        <label for="q" class="visually-hidden">Pesquisar</label>
+
+        <button type="button" class="search-icon" aria-hidden="true" tabindex="-1">
+          <img src="images/lupa.png" alt="" loading="lazy">
+        </button>
+
+        <input id="q" name="q" type="search" inputmode="search"
+               placeholder="Pesquise no Google ou digite um URL"
+               autocomplete="off" aria-label="Campo de busca">
+
+        <div class="search-actions" aria-hidden="false">
+          <button type="button" class="icon-btn action" aria-label="Pesquisar por voz" title="Pesquisar por voz">
+            <img src="images/microphone.png" alt="Microfone" loading="lazy">
+          </button>
+
+          <button type="button" class="icon-btn action" aria-label="Pesquisar por imagem" title="Pesquisar por imagem">
+            <img src="images/camera.png" alt="Câmera" loading="lazy">
+          </button>
+        </div>
+      </form>
+
+      <div class="shortcuts" aria-label="Atalhos">
+  <!-- Card 1 -->
+  <a class="shortcut" href="https://github.com/lumaxs" title="Github">
+    <div class="shortcut-icon">
+      <img src="images/github.png" alt="Github" loading="lazy">
+    </div>
+    <span class="shortcut-label">Github</span>
+  </a>
+
+  <!-- Card 2 -->
+  <a class="shortcut" href="https://openai.com/pt-BR/" title="Chat GPT">
+    <div class="shortcut-icon">
+      <img src="images/gpt.png" alt="Chat GPT" loading="lazy">
+    </div>
+    <span class="shortcut-label">Chat GPT</span>
+  </a>
+
+  <!-- Card 3 -->
+  <a class="shortcut" href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" title="Documentação JS">
+    <div class="shortcut-icon">
+      <img src="images/javascript.png" alt="JavaScript" loading="lazy">
+    </div>
+    <span class="shortcut-label">JS Docs</span>
+  </a>
+
+  <!-- Card 4 -->
+  <a class="shortcut" href="https://react.dev/" title="React">
+    <div class="shortcut-icon">
+      <img src="images/react.png" alt="React" loading="lazy">
+    </div>
+    <span class="shortcut-label">React</span>
+  </a>
+
+  <!-- Card 5 (botão especial) -->
+  <button class="shortcut create-shortcut" type="button" title="Criar atalho" aria-label="Criar atalho">
+    <div class="shortcut-icon">
+      <img src="images/add.png" alt="Adicionar" loading="lazy">
+    </div>
+    <span class="shortcut-label">Criar atalho</span>
+  </button>
+</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-pill" role="contentinfo">
+      <img src="images/pencil.png" alt="" loading="lazy" width="16" height="16">
+      <span>Personalizar o Chrome</span>
+    </div>
+  </footer>
+
+  <!-- script.js se quiser adicionar comportamento JS futuro -->
+</body>
+</html>

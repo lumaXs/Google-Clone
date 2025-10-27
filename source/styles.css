@@ -1,0 +1,297 @@
+/* ===========================
+   Reset mínimo e variáveis
+   =========================== */
+:root{
+  --bg: #f8fbff;
+  --search-bg: #ffffff;
+  --primary: #1a73e8;        /* azul principal (Google-like) */
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --glass: rgba(0,0,0,0.04);
+  --radius: 24px;
+  --gap: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 6px 24px rgba(0,0,0,0.12);
+  --text: #202124;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica", "Arial", sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  padding:0 16px 80px;
+}
+
+/* Visually hidden (for labels) */
+.visually-hidden{
+  position:absolute !important;
+  height:1px; width:1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;
+}
+
+/* ===========================
+   Header / top nav
+   =========================== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  z-index:50;
+  pointer-events:none; /* container inert, children re-enable */
+}
+
+.top-nav{
+  width:100%;
+  max-width:1100px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 8px;
+  gap:12px;
+  pointer-events:auto; /* habilita interações dentro */
+}
+
+.nav-left, .nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* links */
+.nav-link{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:0.95rem;
+  padding:6px;
+}
+.nav-link:hover,
+.nav-link:focus{ color:var(--text); outline:none; text-decoration:underline; }
+
+/* ícones (botões) */
+.icon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:none;
+  border-radius:50%;
+  padding:6px;
+  cursor:pointer;
+}
+.icon-btn img{ width:20px; height:20px; display:block; }
+.icon-btn:focus-visible{ outline:3px solid rgba(26,115,232,0.18); }
+
+/* profile slightly larger */
+.icon-btn.profile img{ width:28px; height:28px; border-radius:50%; }
+
+/* ===========================
+   Main / Hero / Search
+   =========================== */
+main{ width:100%; display:flex; justify-content:center; margin-top:90px; }
+
+.hero{
+  width:100%;
+  max-width:980px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:32px 8px;
+}
+
+/* logo responsivo */
+.logo{ width:60%; max-width:360px; height:auto; display:block; }
+
+/* search form */
+.search{
+  width:min(720px, 92%);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:var(--search-bg);
+  border-radius:999px;
+  padding:10px 14px;
+  box-shadow: var(--shadow-sm);
+  border:1px solid rgba(0,0,0,0.06);
+}
+
+/* left icon (decorativo) */
+.search-icon{
+  background:transparent;
+  border:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px;
+  border-radius:50%;
+}
+.search-icon img{ width:20px; height:20px; opacity:0.9 }
+
+/* input */
+.search input{
+  flex:1;
+  border:none;
+  width: 70vw;
+  max-width: 500px;
+  background:transparent;
+  outline:none;
+  font-size:1rem;
+  padding:8px 6px;
+  color:var(--text);
+}
+.search input::placeholder{ color: #9ca3af; }
+
+/* action icons on right */
+.search-actions{ display:flex; gap:8px; align-items:center; }
+.search .action img{ width:20px; height:20px; }
+
+/* foco acessível */
+.search:focus-within{ box-shadow: var(--shadow-md); transform:translateY(-1px); }
+
+/* ===========================
+   Shortcuts grid
+   =========================== */
+.shortcuts{
+  margin-top:6px;
+  width:100%;
+  max-width:900px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap:14px;
+  justify-items:center;
+  align-items:start;
+  padding:8px;
+}
+
+/* each shortcut */
+.shortcut,
+.create-shortcut{
+  width:100%;
+  max-width:140px;
+  text-align:center;
+  text-decoration:none;
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:center;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+}
+.shortcut:focus-visible,
+.create-shortcut:focus-visible{
+  outline:none;
+}
+
+/* icon circle padrão */
+.shortcut-icon{
+  height:64px;
+  width:64px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms ease, box-shadow 180ms;
+}
+.shortcut-icon img{ width:60%; height:auto; display:block; }
+
+/* hover effect */
+.shortcut:hover .shortcut-icon,
+.shortcut:focus .shortcut-icon{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+}
+
+/* botão "Criar atalho" — correção do quadrado */
+.create-shortcut {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.create-shortcut .shortcut-icon {
+  background-color: rgba(26,115,232,0.12);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.create-shortcut .shortcut-icon:hover {
+  background-color: rgba(26,115,232,0.2);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.create-shortcut .shortcut-icon img {
+  transition: transform 0.25s ease;
+}
+.create-shortcut:hover .shortcut-icon img {
+  transform: rotate(90deg);
+}
+
+/* label */
+.shortcut-label{ font-size:0.9rem; color:var(--muted); }
+
+/* ===========================
+   Footer
+   =========================== */
+footer{ position:fixed; right:16px; bottom:16px; z-index:30; }
+
+.footer-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--card-bg);
+  padding:8px 12px;
+  border-radius:999px;
+  box-shadow: var(--shadow-sm);
+  border:1px solid rgba(0,0,0,0.06);
+  cursor:pointer;
+}
+.footer-pill img{
+  width:16px;
+  height:16px;
+  display:block;
+  margin-right: 8px;
+}
+
+/* ===========================
+   Responsividade
+   =========================== */
+@media (max-width:720px){
+  .logo{ width:70%; max-width:240px; }
+  .search{ width:92%; padding:8px 10px; }
+  .shortcut-icon{ height:56px; width:56px; }
+  .shortcuts{ gap:10px; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
+  header{ height:56px; }
+  body{ padding-bottom:110px; }
+}
+
+@media (max-width:420px){
+  .nav-left{ display:none; } /* apenas ícones no topo mobile */
+  .search{ width:96%; }
+  .logo{ width:78%; }
+  .shortcuts{ grid-template-columns: repeat(2, 1fr); gap:8px; }
+}
